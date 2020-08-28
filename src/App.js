@@ -20,26 +20,94 @@ useEffect(() => {
   const consultarAPI = async () => {
     
    if(consultar){
-    const url = `http://localhost:3001/radiobases?radiobase=${radiobase}&region=${region}`;
-    const respuesta =  await fetch(url);
-    const resultado = await respuesta.json(); 
 
-     console.log(resultado);
+    if(radiobase != "" && region !=""){
 
-    guardarResultado(resultado);
+     // console.log("Entra para General");
 
-    if(resultado === ""){
-      guardarError(true)
-    }else{
-      guardarError(false)
+            const url = `http://localhost:3001/radiobases?radiobase=${radiobase}&region=${region}`;
+
+            const respuesta =  await fetch(url);
+            const resultado = await respuesta.json(); 
+        
+            console.log(resultado);
+        
+            guardarResultado(resultado);
+        
+            if(resultado === ""){
+              guardarError(true)
+            }else{
+              guardarError(false)
+            }
+        
+            // detecta si hubo resultados correctos en la consulta
+            if(resultado === ""){
+              guardarError(true)
+            }else{
+              guardarError(false)
+            }
+
+    }else if( radiobase != ""){
+
+     // console.log("Entra para Radio base");
+
+      const url = `http://localhost:3001/radiobases?radiobase=${radiobase}`;
+
+      const respuesta =  await fetch(url);
+      const resultado = await respuesta.json(); 
+  
+      console.log(resultado);
+  
+      guardarResultado(resultado);
+  
+      if(resultado === ""){
+        guardarError(true)
+      }else{
+        guardarError(false)
+      }
+  
+      // detecta si hubo resultados correctos en la consulta
+      if(resultado === ""){
+        guardarError(true)
+      }else{
+        guardarError(false)
+      }
+
+    }else if(region){
+
+      
+     // console.log("Entra para Region");
+
+      const url = `http://localhost:3001/radiobases?region=${region}`;
+
+      const respuesta =  await fetch(url);
+      const resultado = await respuesta.json(); 
+  
+      console.log(resultado);
+  
+      guardarResultado(resultado);
+  
+      if(resultado === ""){
+        guardarError(true)
+      }else{
+        guardarError(false)
+      }
+  
+      // detecta si hubo resultados correctos en la consulta
+      if(resultado === ""){
+        guardarError(true)
+      }else{
+        guardarError(false)
+      }
+
     }
+    // busqueda general
 
-    // detecta si hubo resultados correctos en la consulta
-    if(resultado === ""){
-      guardarError(true)
-    }else{
-      guardarError(false)
-    }
+
+    // http://localhost:3001/radiobases?radiobase=RB010017C101
+    // http://localhost:3001/radiobases?region=6
+
+
 
    }
   }

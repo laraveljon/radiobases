@@ -7,7 +7,7 @@ const Formulario = ({busqueda, guardarBusqueda, guardarConsultar}) => {
 
 
 
-    const[error, guardarError] = useState(false)
+    //const[error, guardarError] = useState(false)
 
         //extraer ciudad y pais 
         const {radiobase,region} = busqueda
@@ -28,13 +28,13 @@ const Formulario = ({busqueda, guardarBusqueda, guardarConsultar}) => {
         //console.log("Radio base ", radiobase);
 
         // validar
-          if(radiobase.trim() === '' || region.trim() === ''){
+          // if(radiobase.trim() === '' || region.trim() === ''){
 
-            guardarError(true);
-            return;
-          }
+          //   guardarError(true);
+          //   return;
+          // }
 
-          guardarError(false);
+          // guardarError(false);
 
         //pasarlo al componente principal
         guardarConsultar(true);
@@ -45,7 +45,7 @@ const Formulario = ({busqueda, guardarBusqueda, guardarConsultar}) => {
     return ( 
        <form 
            onSubmit={handleSubmit}>
-           {error ?  <p className="red darken-4 error">Todos los campos son obligatorios</p> : null}
+          
         <div className="input-field col s12">
           <input
                type="text"
