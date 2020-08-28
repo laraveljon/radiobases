@@ -73,7 +73,7 @@ useEffect(() => {
         guardarError(false)
       }
 
-    }else if(region){
+    }else if(region !=""){
 
       
      // console.log("Entra para Region");
